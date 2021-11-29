@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,8 @@ namespace MetaLiteApi
 {
     public class Program
     {
+        
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -22,5 +25,7 @@ namespace MetaLiteApi
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        
     }
 }
