@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace MetaLiteApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class UserController : Controller
     {
 
@@ -16,10 +18,18 @@ namespace MetaLiteApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Users> Get()
+        public IActionResult Get()
         {
-            List<string> data = Helper.readfile();
-            return (IEnumerable<Users>)data;
+            return Ok(value: Helper.readfile());
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] Users post)
+        {
+            //Users newuser = new Users(username, email, password);
+            
+            Helper.writefile(post);
+            return Ok(value: Helper.readfile());
         }
     }
 }

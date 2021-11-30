@@ -11,45 +11,63 @@ namespace MetaLiteApi
     public class Users
     {
         [Key]
-        int userId { get; }
-
+        public int userId { get; set; }
         [Required]
+        private string _username;
+        [Required]
+        private string _password;
+        [Required]
+        private string _email;
+
+        
         public string Username {
 
-            get { return Username; }
+            get { return _username; }
             set
             {
                 if (!Helper.IsTooLong(value))
                 {
-                    Username = value;
+                    _username = value;
+                    Console.WriteLine("Virkede");
+                }
+                else
+                {
+                    throw new Exception("too long");
                 }
             }
         }
 
-        [Required]
-        public string password 
+        
+        public string Password 
         { 
-            get { return password; }
+            get { return _password; }
             set 
             {
                 if (!Helper.IsTooLong(value))
                 {
-                    password = value;
+                    _password = value;
                 }
             }
         }
 
-        [Required]
+        
         public string Email 
         { 
-            get { return Email; }
+            get { return _email; }
             set
             {
                 if (!Helper.IsTooLong(value))
                 {
-                    Email = value;
+                    _email = value;
                 }
             }
-        } 
+        }
+
+        public Users(string username, string email, string password)
+        {
+            Username = username;
+            Email = email;
+            Password = password;
+        }
     }
 }
