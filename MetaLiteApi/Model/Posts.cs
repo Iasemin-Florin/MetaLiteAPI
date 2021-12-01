@@ -12,8 +12,11 @@ namespace MetaLiteApi
     {
         [Key]
         public int postId { get; set; }
+        [Required]
         private string _title;
+        [Required]
         private string _describstion;
+        [Required]
         private string _image;
 
 
@@ -42,12 +45,6 @@ namespace MetaLiteApi
             set { _image = value; } 
         }
 
-        [ForeignKey("UserId")]
-        public Users User
-        {
-            get { return User; } 
-            set { }
-        }
 
         public Posts(string title, string description, string image)
         {

@@ -13,20 +13,19 @@ namespace MetaLiteApi.Controllers
     {
         string filepath = "D:/FileDB/DBposts.txt";
 
-        /*public IActionResult Index()
+        public IActionResult Index()
         {
             return Ok(Helper.postsreadfile(filepath));
-        }*/
+        }
 
         [HttpGet]
         public IActionResult Get()
         {
-            //return Ok(Helper.postsreadfile(filepath));
-            return Ok(new Posts[] { new Posts("hej", "test", "img") });
+            return Ok(Helper.postsreadfile(filepath));
         }   
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Posts post)
+        public IActionResult Post([FromBody] Posts post)
         {
             Helper.postwritefile(post, filepath);
             return Ok(value: Helper.postsreadfile(filepath));
