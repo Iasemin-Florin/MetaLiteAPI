@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MetaLiteApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
+
     public class PostController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
     }
 }

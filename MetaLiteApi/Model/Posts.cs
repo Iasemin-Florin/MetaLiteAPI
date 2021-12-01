@@ -11,30 +11,35 @@ namespace MetaLiteApi
     public class Posts
     {
         [Key]
-        public int postId { get; }
+        public int postId { get; set; }
+        private string _title;
+        private string _describstion;
+        private string _image;
+
+
 
         public string Title 
         { 
-            get { return Title; } 
+            get { return _title; } 
             set 
             {
                 if (!Helper.IsTooLong(value))
                 {
-                    Title = value;
+                    _title = value;
                 }
             } 
         }
 
         public string Describstion 
         { 
-            get { return Describstion; }
-            set { }
+            get { return _describstion; }
+            set { _describstion = value; }
         }
 
-        public Image Image 
+        public string Image 
         { 
-            get { return Image; }
-            set { } 
+            get { return _image; }
+            set { _image = value; } 
         }
 
         [ForeignKey("UserId")]
@@ -44,6 +49,12 @@ namespace MetaLiteApi
             set { }
         }
 
+        public Posts(string title, string description, string image)
+        {
+            Title = title;
+            Describstion = description;
+            Image = image;
+        }
         
     }
 }

@@ -11,7 +11,7 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-
+        string FilePath = "D:/FileDB/DBusers.txt";
         public IActionResult Index()
         {
             return View();
@@ -20,7 +20,7 @@ namespace MetaLiteApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(value: Helper.readfile());
+            return Ok(value: Helper.usersreadfile(FilePath));
         }
 
         [HttpPost]
@@ -28,8 +28,8 @@ namespace MetaLiteApi.Controllers
         {
             //Users newuser = new Users(username, email, password);
             
-            Helper.writefile(post);
-            return Ok(value: Helper.readfile());
+            Helper.Userwritefile(post, FilePath);
+            return Ok(value: Helper.usersreadfile(FilePath));
         }
     }
 }
