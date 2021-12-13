@@ -11,12 +11,7 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class MypostController : Controller
     {
-        string filepath = "C:/FileDB/DBposts.txt";
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        string filepath = "/FileDB/DBposts.txt";
 
         [HttpGet]
         public IActionResult Get()

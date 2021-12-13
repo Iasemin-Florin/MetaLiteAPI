@@ -11,12 +11,7 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-        string FilePath = "C:/FileDB/DBusers.txt";
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        string FilePath = "/FileDB/DBusers.txt";
 
         [HttpGet]
         public IActionResult Get()
