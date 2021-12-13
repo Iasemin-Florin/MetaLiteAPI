@@ -33,9 +33,9 @@ namespace MetaLiteApi
             } 
         }
 
-        public string Describstion 
+        public string Describstion
         { 
-            get { return _describstion; }
+            get { return _describstion; } 
             set { _describstion = value; }
         }
 
@@ -46,10 +46,10 @@ namespace MetaLiteApi
         }
 
 
-        public Posts(string title, string description, string image)
+        public Posts(string title, string describstion, string image)
         {
             Title = title;
-            Describstion = description;
+            Describstion = describstion;
             Image = image;
         }
         

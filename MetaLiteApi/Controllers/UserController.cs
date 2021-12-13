@@ -11,7 +11,8 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-        string FilePath = "D:/FileDB/DBusers.txt";
+        string FilePath = "C:/FileDB/DBusers.txt";
+
         public IActionResult Index()
         {
             return View();
@@ -26,8 +27,6 @@ namespace MetaLiteApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Users post)
         {
-            //Users newuser = new Users(username, email, password);
-            
             Helper.Userwritefile(post, FilePath);
             return Ok(value: Helper.usersreadfile(FilePath));
         }

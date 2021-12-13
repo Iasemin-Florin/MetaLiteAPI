@@ -8,14 +8,14 @@ using System.IO;
 namespace MetaLiteApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class MypostController : Controller
     {
-        string filepath = "D:/FileDB/DBposts.txt";
+        string filepath = "C:/FileDB/DBposts.txt";
 
         public IActionResult Index()
         {
-            return Ok(Helper.postsreadfile(filepath));
+            return View();
         }
 
         [HttpGet]
