@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <StartupObject></StartupObject>
+    <Nullable>warnings</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -9,6 +11,13 @@
     <OutputPath>bin\Debug\net5.0\</OutputPath>
     <Optimize>true</Optimize>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="FileDB\DBposts.txt" />
@@ -29,7 +38,6 @@
 
   <ItemGroup>
     <Folder Include="FileDB\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

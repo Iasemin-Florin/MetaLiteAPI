@@ -47,7 +47,7 @@ public static class Helper
         else
         {
             listofallusers.Add(signupuser);
-            File.WriteAllLines(filepath, arrayofallusersStr(listofallusers));
+            File.WriteAllLines(filepath, ArrayofallusersStr(listofallusers));
         }
         
 
@@ -81,7 +81,7 @@ public static class Helper
         return false;
     }
 
-    public static string[] arrayofallusersStr(List<Users> listofallusers)
+    public static string[] ArrayofallusersStr(List<Users> listofallusers)
     {
         List<string> listofalluserStr = new List<string>();
 
@@ -93,7 +93,7 @@ public static class Helper
         return listofalluserStr.ToArray();
     }
     #endregion
-    public static Posts[] postsreadfile(string filepath)
+    public static Posts[] Postsreadfile(string filepath)
     {
         List<Posts> listofallposts = new List<Posts>();
         foreach (string post in File.ReadAllLines(filepath))
@@ -106,9 +106,9 @@ public static class Helper
         return listofallposts.ToArray();
     }
 
-    public static void postwritefile(Posts newpost, string filepath)
+    public static void Postwritefile(Posts newpost, string filepath)
     {
-        List<Posts> listofallposts = postsreadfile(filepath).ToList();
+        List<Posts> listofallposts = Postsreadfile(filepath).ToList();
         newpost = postgivenewid(newpost, listofallposts);
         listofallposts.Add(newpost);
         File.WriteAllLines(filepath, arrayofallpostStr(listofallposts));
@@ -136,7 +136,7 @@ public static class Helper
                 id = post.postId;
             }
         }
-        newpost.postId = id;
+        newpost.postId = id++;
         return newpost;
     }
 }

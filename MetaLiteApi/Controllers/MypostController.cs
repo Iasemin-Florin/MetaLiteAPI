@@ -11,19 +11,20 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class MypostController : Controller
     {
-        string filepath = "/FileDB/DBposts.txt";
+        string filepath = Environment.CurrentDirectory + "/FileDB/DBposts.txt";
+
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(Helper.postsreadfile(filepath));
-        }   
+            return Ok(Helper.Postsreadfile(filepath));
+        }
 
         [HttpPost]
         public IActionResult Post([FromBody] Posts post)
         {
-            Helper.postwritefile(post, filepath);
-            return Ok(value: Helper.postsreadfile(filepath));
+            Helper.Postwritefile(post, filepath);
+            return Ok(value: Helper.Postsreadfile(filepath));
         }
     }
 }
