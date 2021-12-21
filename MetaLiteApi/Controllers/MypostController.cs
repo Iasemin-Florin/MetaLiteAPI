@@ -11,7 +11,6 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class MypostController : Controller
     {
-        string filepath = Environment.CurrentDirectory + "/FileDB/DBposts.txt";
 
 
         [HttpGet]

@@ -10,6 +10,8 @@ namespace MetaLiteApi
     [Table("Users")]
     public class Users
     {
+        public static string FilePath = Environment.CurrentDirectory + "/FileDB/DBusers.txt";
+
         [Key]
         public int userId { get; set; }
         [Required]

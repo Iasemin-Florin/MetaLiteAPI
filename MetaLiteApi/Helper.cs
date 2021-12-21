@@ -6,6 +6,10 @@ using System.Linq;
 
 public static class Helper
 {
+    public static Posts newestpost;
+
+    public static Users newestuser;
+
     #region
     public static bool IsTooLong(string value)
     {
@@ -19,10 +23,10 @@ public static class Helper
         }
     }
 
-    public static Users[] usersreadfile(string filepath)
+    public static Users[] usersreadfile()
     {
         List<Users> listofallusers = new List<Users>();
-        foreach (string user in File.ReadAllLines(filepath))
+        foreach (string user in File.ReadAllLines(Users.FilePath))
         {
             string[] array = user.Split(',');
             Users newuser = new Users(array[1], array[2], array[3]);
@@ -34,9 +38,9 @@ public static class Helper
 
     
 
-    public static void Userwritefile(Users signupuser, string filepath)
+    public static void Userwritefile(Users signupuser)
     {
-        List<Users> listofallusers = usersreadfile(filepath).ToList();
+        List<Users> listofallusers = usersreadfile().ToList();
 
         signupuser = givenewid(signupuser, listofallusers);
 
@@ -46,8 +50,9 @@ public static class Helper
         }
         else
         {
+            newestuser = signupuser;
             listofallusers.Add(signupuser);
-            File.WriteAllLines(filepath, ArrayofallusersStr(listofallusers));
+            File.WriteAllLines(Users.FilePath, ArrayofallusersStr(listofallusers));
         }
         
 
@@ -93,10 +98,10 @@ public static class Helper
         return listofalluserStr.ToArray();
     }
     #endregion
-    public static Posts[] Postsreadfile(string filepath)
+    public static Posts[] Postsreadfile()
     {
         List<Posts> listofallposts = new List<Posts>();
-        foreach (string post in File.ReadAllLines(filepath))
+        foreach (string post in File.ReadAllLines(Posts.filepath))
         {
             string[] array = post.Split(',');
             Posts newposts = new Posts(array[1], array[2], array[3]);
@@ -106,12 +111,13 @@ public static class Helper
         return listofallposts.ToArray();
     }
 
-    public static void Postwritefile(Posts newpost, string filepath)
+    public static void Postwritefile(Posts newpost)
     {
-        List<Posts> listofallposts = Postsreadfile(filepath).ToList();
+        List<Posts> listofallposts = Postsreadfile().ToList();
         newpost = postgivenewid(newpost, listofallposts);
+        newestpost = newpost;
         listofallposts.Add(newpost);
-        File.WriteAllLines(filepath, arrayofallpostStr(listofallposts));
+        File.WriteAllLines(Posts.filepath, arrayofallpostStr(listofallposts));
     }
 
     private static string[] arrayofallpostStr(List<Posts> listofallposts)
@@ -139,4 +145,18 @@ public static class Helper
         newpost.postId = id + 1;
         return newpost;
     }
+
+    public static bool loginCorrect(string username, string password)
+    {   List<Users> listofallusers = usersreadfile().ToList();
+        bool i = false;
+        foreach (Users user in listofallusers)
+        {
+            if(user.Username == username && user.Password == password)
+            {
+                i = true;
+            }
+        }
+        return i;
+    }
+
 }

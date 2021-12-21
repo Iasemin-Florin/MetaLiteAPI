@@ -10,6 +10,9 @@ namespace MetaLiteApi
     [Table("Posts")]
     public class Posts
     {
+
+        public static string filepath = Environment.CurrentDirectory + "/FileDB/DBposts.txt";
+
         [Key]
         public int postId { get; set; }
         [Required]

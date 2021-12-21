@@ -11,7 +11,7 @@ namespace MetaLiteApi.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-        string FilePath = Environment.CurrentDirectory + "/FileDB/DBusers.txt";
+        
 
 
         [HttpGet]
