@@ -18,14 +18,14 @@ namespace MetaLiteApi.Controllers
         public IActionResult Get()
         {
             Console.WriteLine("Get User Success");
-            return Ok(value: Helper.usersreadfile(FilePath));
+            return Ok(value: Helper.usersreadfile());
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] Users post)
         {
-            Helper.Userwritefile(post, FilePath);
-            return Ok(value: Helper.usersreadfile(FilePath));
+            Helper.Userwritefile(post);
+            return Ok(value: Helper.usersreadfile());
         }
     }
 }
