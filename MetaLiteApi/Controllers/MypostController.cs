@@ -17,6 +17,7 @@ namespace MetaLiteApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            Console.WriteLine("Get Post Success");
             return Ok(Helper.Postsreadfile(filepath));
         }
 

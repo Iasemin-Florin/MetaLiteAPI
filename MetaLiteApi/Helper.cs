@@ -136,7 +136,7 @@ public static class Helper
                 id = post.postId;
             }
         }
-        newpost.postId = id++;
+        newpost.postId = id + 1;
         return newpost;
     }
 }

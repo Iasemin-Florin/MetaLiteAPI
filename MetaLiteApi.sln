@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.810.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaLiteApi", "MetaLiteApi\MetaLiteApi.csproj", "{C6E7D779-8B19-4514-BF97-0746445BCEBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaLiteApi", "MetaLiteApi\MetaLiteApi.csproj", "{C6E7D779-8B19-4514-BF97-0746445BCEBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B846898D-824E-4441-A37E-B32952DE07DD}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

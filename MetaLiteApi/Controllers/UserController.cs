@@ -13,9 +13,11 @@ namespace MetaLiteApi.Controllers
     {
         string FilePath = Environment.CurrentDirectory + "/FileDB/DBusers.txt";
 
+
         [HttpGet]
         public IActionResult Get()
         {
+            Console.WriteLine("Get User Success");
             return Ok(value: Helper.usersreadfile(FilePath));
         }
 
